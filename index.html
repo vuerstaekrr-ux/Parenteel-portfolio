@@ -14,6 +14,59 @@
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>	
 
+<style>
+/* === Zelfde custom cursors (in de IFRAME-site zelf!) ================== */
+:root{
+  /* Klikbaar: rood vierkant */
+  --cur-click: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><rect x='3.5' y='3.5' width='17' height='17' fill='none' stroke='%23e60023' stroke-width='2'/></svg>") 12 12;
+
+  /* Default/niet-klikbaar: rood vierkant met kruis */
+  --cur-block: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><rect x='3.5' y='3.5' width='17' height='17' fill='none' stroke='%23e60023' stroke-width='2'/><line x1='5' y1='5' x2='19' y2='19' stroke='%23e60023' stroke-width='2'/><line x1='19' y1='5' x2='5' y2='19' stroke='%23e60023' stroke-width='2'/></svg>") 12 12;
+
+  /* Typen: rode I-beam */
+  --cur-ibeam: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><rect x='3.5' y='3.5' width='17' height='17' fill='none' stroke='%23e60023' stroke-opacity='0.25' stroke-width='2'/><line x1='8' y1='6' x2='16' y2='6' stroke='%23e60023' stroke-width='2' stroke-linecap='round'/><line x1='12' y1='6' x2='12' y2='18' stroke='%23e60023' stroke-width='2' stroke-linecap='round'/><line x1='8' y1='18' x2='16' y2='18' stroke='%23e60023' stroke-width='2' stroke-linecap='round'/></svg>") 12 12;
+
+  --cursor-red: #e60023; /* voor caret-kleur */
+}
+
+/* Globale default in de iframe-site: vierkant met kruis */
+html, body{ cursor: var(--cur-block), default; }
+
+/* Klikbare elementen → vierkant */
+a[href],
+button:not(:disabled),
+[role="button"],
+label[for],
+summary,
+[tabindex]:not([tabindex="-1"]) {
+  cursor: var(--cur-click), pointer;
+}
+
+/* Typen → rode I-beam + rode caret */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+textarea,
+[contenteditable],
+[contenteditable="true"]{
+  cursor: var(--cur-ibeam), text;
+  caret-color: var(--cursor-red);
+}
+
+/* Expliciet niet-klikbaar → kruis */
+[aria-disabled="true"],
+.is-disabled,
+button:disabled,
+a:not([href]) {
+  cursor: var(--cur-block), not-allowed;
+}
+</style>
+
+	
 <style id="applicationStylesheet" type="text/css">
 
 
