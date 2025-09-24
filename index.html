@@ -14,46 +14,7 @@
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>	
 
-<style>	
-/* === Custom cursors (rood) — in de IFRAME-site ====================== */
-:root{
-  /* Klikbaar: leeg rood vierkant */
-  --cur-click: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><rect x='3.5' y='3.5' width='17' height='17' fill='none' stroke='%23e60023' stroke-width='2'/></svg>") 12 12;
 
-  /* Default / niet-klikbaar: rood vierkant met kruis */
-  --cur-block: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><rect x='3.5' y='3.5' width='17' height='17' fill='none' stroke='%23e60023' stroke-width='2'/><line x1='5' y1='5' x2='19' y2='19' stroke='%23e60023' stroke-width='2'/><line x1='19' y1='5' x2='5' y2='19' stroke='%23e60023' stroke-width='2'/></svg>") 12 12;
-}
-
-/* 1) Standaard overal = blok (vierkant met kruis) */
-html, body{
-  cursor: var(--cur-block), default;
-}
-
-/* 2) Klikbare elementen = leeg rood vierkant (incl. hun children!) */
-a[href],
-button:not(:disabled),
-[role="button"],
-label[for],
-summary,
-[tabindex]:not([tabindex="-1"]),
-.clickable{
-  cursor: var(--cur-click), pointer !important;
-}
-a[href] *,
-button:not(:disabled) *,
-[role="button"] *,
-.clickable *{
-  cursor: var(--cur-click), pointer !important;
-}
-
-/* 3) Niet-klikbaar/disabled blijft blok-variant */
-[aria-disabled="true"],
-.is-disabled,
-button:disabled,
-a:not([href]){
-  cursor: var(--cur-block), not-allowed !important;
-}
-</style>
 	
 <style id="applicationStylesheet" type="text/css">
 
